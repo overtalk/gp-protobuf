@@ -1,0 +1,17 @@
+syntax = "proto3";
+
+package test.v1;
+
+option go_package = "v1;v1";
+
+message TestRequest
+{
+    string A = 1;
+    string B = 2;
+}
+
+message TestResponse
+{
+    string A = 1;
+    string B = 2;
+}
