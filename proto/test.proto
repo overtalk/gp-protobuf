@@ -1,8 +1,8 @@
 syntax = "proto3";
 
-package test.v1;
+package protocol;
 
-option go_package = "v1;protocol";
+option go_package = "go;protocol";
 
 message TestRequest
 {

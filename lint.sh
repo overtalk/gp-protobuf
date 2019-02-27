@@ -1,4 +1,4 @@
 
 #!/bin/bash
 
-protoc -I . --lint_out=. proto/*/*.proto
+protoc -I . --lint_out=. proto/*.proto

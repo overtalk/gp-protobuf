@@ -3,9 +3,9 @@
 
 ## Table of Contents
 
-- [proto/v1/test.proto](#proto/v1/test.proto)
-    - [TestRequest](#test.v1.TestRequest)
-    - [TestResponse](#test.v1.TestResponse)
+- [proto/test.proto](#proto/test.proto)
+    - [TestRequest](#protocol.TestRequest)
+    - [TestResponse](#protocol.TestResponse)
   
   
   
@@ -15,14 +15,14 @@
 
 
 
-<a name="proto/v1/test.proto"></a>
+<a name="proto/test.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## proto/v1/test.proto
+## proto/test.proto
 
 
 
-<a name="test.v1.TestRequest"></a>
+<a name="protocol.TestRequest"></a>
 
 ### TestRequest
 
@@ -38,7 +38,7 @@
 
 
 
-<a name="test.v1.TestResponse"></a>
+<a name="protocol.TestResponse"></a>
 
 ### TestResponse
 
