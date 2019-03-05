@@ -6,4 +6,7 @@ option go_package = "go;protocol";
 
 enum Code {
     ok = 0;
+    internal = 1;   
+    invaild_data = 2;
+    no_token = 3;
 }

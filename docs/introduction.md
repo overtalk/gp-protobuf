@@ -3,9 +3,18 @@
 
 ## Table of Contents
 
-- [proto/test.proto](#proto/test.proto)
-    - [TestRequest](#protocol.TestRequest)
-    - [TestResponse](#protocol.TestResponse)
+- [proto/code.proto](#proto/code.proto)
+  
+    - [Code](#protocol.Code)
+  
+  
+  
+
+- [proto/login.proto](#proto/login.proto)
+    - [LogOutReq](#protocol.LogOutReq)
+    - [LogOutResp](#protocol.LogOutResp)
+    - [LoginReq](#protocol.LoginReq)
+    - [LoginResp](#protocol.LoginResp)
   
   
   
@@ -15,39 +24,99 @@
 
 
 
-<a name="proto/test.proto"></a>
+<a name="proto/code.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## proto/test.proto
+## proto/code.proto
+
+
+ 
+
+
+<a name="protocol.Code"></a>
+
+### Code
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| ok | 0 |  |
+| internal | 1 |  |
+| invaild_data | 2 |  |
+| no_token | 3 |  |
+
+
+ 
+
+ 
+
+ 
 
 
 
-<a name="protocol.TestRequest"></a>
+<a name="proto/login.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
 
-### TestRequest
+## proto/login.proto
+
+
+
+<a name="protocol.LogOutReq"></a>
+
+### LogOutReq
+登出
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| username | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="protocol.LogOutResp"></a>
+
+### LogOutResp
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| A | [string](#string) |  |  |
-| B | [string](#string) |  |  |
+| code | [Code](#protocol.Code) |  |  |
 
 
 
 
 
 
-<a name="protocol.TestResponse"></a>
+<a name="protocol.LoginReq"></a>
 
-### TestResponse
+### LoginReq
+登陆
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| username | [string](#string) |  |  |
+| password | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="protocol.LoginResp"></a>
+
+### LoginResp
 
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| A | [string](#string) |  |  |
-| B | [string](#string) |  |  |
+| code | [Code](#protocol.Code) |  |  |
+| token | [string](#string) |  |  |
 
 
 
