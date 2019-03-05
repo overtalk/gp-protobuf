@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package protocol;
+
+option go_package = "go;protocol";
+
+enum Code {
+    ok = 0;
+}

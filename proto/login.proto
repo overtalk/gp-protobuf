@@ -1,0 +1,30 @@
+syntax = "proto3";
+
+package protocol;
+
+import "proto/code.proto";
+
+option go_package = "go;protocol";
+
+// 登陆
+message LoginReq
+{
+    string username = 1;
+    string password = 2;
+}
+message LoginResp
+{
+    Code code = 1;
+    string token = 2;
+}
+
+
+// 登出
+message LogOutReq
+{
+    string username = 1;
+}
+message LogOutResp
+{
+    Code code = 1;
+}
