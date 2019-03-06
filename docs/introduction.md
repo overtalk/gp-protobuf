@@ -52,7 +52,7 @@ Code : 状态码
 | OK | 0 |  |
 | INTERNAL | 1 | 服务端内部错误 |
 | INVAILD_DATA | 2 | 非法数据，post数据无法反序列化 |
-| MISSING_TOKEN | 3 | 没有token，无法身份认证 |
+| PERMISSION_DENIED | 3 | 没有token，无法身份认证 |
 
 
  
