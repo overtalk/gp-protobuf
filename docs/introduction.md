@@ -10,6 +10,15 @@
   
   
 
+- [proto/common.proto](#proto/common.proto)
+    - [SubmitRecord](#protocol.SubmitRecord)
+    - [UserInfo](#protocol.UserInfo)
+  
+    - [Role](#protocol.Role)
+  
+  
+  
+
 - [proto/login.proto](#proto/login.proto)
     - [LogOutReq](#protocol.LogOutReq)
     - [LogOutResp](#protocol.LogOutResp)
@@ -36,14 +45,81 @@
 <a name="protocol.Code"></a>
 
 ### Code
-
+Code : 状态码
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
-| ok | 0 |  |
-| internal | 1 |  |
-| invaild_data | 2 |  |
-| no_token | 3 |  |
+| OK | 0 |  |
+| INTERNAL | 1 | 服务端内部错误 |
+| INVAILD_DATA | 2 | 非法数据，post数据无法反序列化 |
+| MISSING_TOKEN | 3 | 没有token，无法身份认证 |
+
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="proto/common.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## proto/common.proto
+
+
+
+<a name="protocol.SubmitRecord"></a>
+
+### SubmitRecord
+SubmitRecord : 提交情况
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | 题目id（目前暂定string，可能改成int64） |
+| introduction | [string](#string) |  | 题目简介 |
+| submit_time | [int64](#int64) |  | 提交时间戳 |
+| is_pass | [bool](#bool) |  | 是否通过 |
+
+
+
+
+
+
+<a name="protocol.UserInfo"></a>
+
+### UserInfo
+UserInfo : 用户基本信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| name | [string](#string) |  |  |
+| sex | [bool](#bool) |  |  |
+| role | [Role](#protocol.Role) |  |  |
+| academy | [string](#string) |  | 学院 |
+| major | [string](#string) |  | 专业 |
+| email | [string](#string) |  |  |
+| last_login | [int64](#int64) |  |  |
+
+
+
+
+
+ 
+
+
+<a name="protocol.Role"></a>
+
+### Role
+Role : 用户角色（学生/老师...）
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| STUDENT | 0 |  |
+| TEACHER | 1 |  |
 
 
  
@@ -117,6 +193,8 @@
 | ----- | ---- | ----- | ----------- |
 | code | [Code](#protocol.Code) |  |  |
 | token | [string](#string) |  |  |
+| user | [UserInfo](#protocol.UserInfo) |  | 用户信息 |
+| submit_records | [SubmitRecord](#protocol.SubmitRecord) | repeated | submit记录 （ TODO: 可以考虑提到新的协议中） |
 
 
 

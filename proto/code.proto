@@ -4,9 +4,10 @@ package protocol;
 
 option go_package = "go;protocol";
 
+// Code : 状态码
 enum Code {
-    ok = 0;
-    internal = 1;   
-    invaild_data = 2;
-    no_token = 3;
+    OK = 0;
+    INTERNAL = 1;       // 服务端内部错误
+    INVAILD_DATA = 2;   // 非法数据，post数据无法反序列化
+    MISSING_TOKEN = 3;       // 没有token，无法身份认证
 }

@@ -3,6 +3,7 @@ syntax = "proto3";
 package protocol;
 
 import "proto/code.proto";
+import "proto/common.proto";
 
 option go_package = "go;protocol";
 
@@ -16,6 +17,8 @@ message LoginResp
 {
     Code code = 1;
     string token = 2;
+    UserInfo user = 3;  // 用户信息
+    repeated SubmitRecord submit_records = 4;  // submit记录 （ TODO: 可以考虑提到新的协议中）
 }
 
 
@@ -28,3 +31,4 @@ message LogOutResp
 {
     Code code = 1;
 }
+
