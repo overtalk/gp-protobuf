@@ -11,19 +11,27 @@
   
 
 - [proto/common.proto](#proto/common.proto)
+    - [Problem](#protocol.Problem)
     - [SubmitRecord](#protocol.SubmitRecord)
     - [UserInfo](#protocol.UserInfo)
   
+    - [Problem.Difficluty](#protocol.Problem.Difficluty)
     - [Role](#protocol.Role)
   
   
   
 
 - [proto/login.proto](#proto/login.proto)
-    - [LogOutReq](#protocol.LogOutReq)
-    - [LogOutResp](#protocol.LogOutResp)
+    - [LogOut](#protocol.LogOut)
     - [LoginReq](#protocol.LoginReq)
     - [LoginResp](#protocol.LoginResp)
+  
+  
+  
+  
+
+- [proto/problem.proto](#proto/problem.proto)
+    - [ProblemList](#protocol.ProblemList)
   
   
   
@@ -52,7 +60,7 @@ Code : 状态码
 | OK | 0 |  |
 | INTERNAL | 1 | 服务端内部错误 |
 | INVAILD_DATA | 2 | 非法数据，post数据无法反序列化 |
-| PERMISSION_DENIED | 3 | 没有token，无法身份认证 |
+| PERMISSION_DENIED | 3 | 没有token，无法身份认证, 或者是是token错误之类，就是无法认证用户身份 |
 
 
  
@@ -70,6 +78,26 @@ Code : 状态码
 
 
 
+<a name="protocol.Problem"></a>
+
+### Problem
+Problem : 题目
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [string](#string) |  | 题目id（目前暂定string，可能改成int64） |
+| introduction | [string](#string) |  | 题目简介 |
+| details | [string](#string) |  | 题目内容 |
+| category | [string](#string) | repeated | 题目类别 |
+| pass_rate | [float](#float) |  | 通过率 |
+| difficluty | [Problem.Difficluty](#protocol.Problem.Difficluty) |  | 难度 |
+
+
+
+
+
+
 <a name="protocol.SubmitRecord"></a>
 
 ### SubmitRecord
@@ -78,8 +106,7 @@ SubmitRecord : 提交情况
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | 题目id（目前暂定string，可能改成int64） |
-| introduction | [string](#string) |  | 题目简介 |
+| problem | [Problem](#protocol.Problem) |  | 题目 |
 | submit_time | [int64](#int64) |  | 提交时间戳 |
 | is_pass | [bool](#bool) |  | 是否通过 |
 
@@ -111,6 +138,19 @@ UserInfo : 用户基本信息
  
 
 
+<a name="protocol.Problem.Difficluty"></a>
+
+### Problem.Difficluty
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| EASY | 0 |  |
+| MEDIUM | 1 |  |
+| HARD | 2 |  |
+
+
+
 <a name="protocol.Role"></a>
 
 ### Role
@@ -137,25 +177,10 @@ Role : 用户角色（学生/老师...）
 
 
 
-<a name="protocol.LogOutReq"></a>
+<a name="protocol.LogOut"></a>
 
-### LogOutReq
-登出
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| username | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="protocol.LogOutResp"></a>
-
-### LogOutResp
-
+### LogOut
+登出 (get)
 
 
 | Field | Type | Label | Description |
@@ -170,7 +195,7 @@ Role : 用户角色（学生/老师...）
 <a name="protocol.LoginReq"></a>
 
 ### LoginReq
-登陆
+登陆 (post)
 
 
 | Field | Type | Label | Description |
@@ -195,6 +220,38 @@ Role : 用户角色（学生/老师...）
 | token | [string](#string) |  |  |
 | user | [UserInfo](#protocol.UserInfo) |  | 用户信息 |
 | submit_records | [SubmitRecord](#protocol.SubmitRecord) | repeated | submit记录 （ TODO: 可以考虑提到新的协议中） |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="proto/problem.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## proto/problem.proto
+
+
+
+<a name="protocol.ProblemList"></a>
+
+### ProblemList
+题目分类列表（get）
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| categories | [string](#string) | repeated | 所有类别 |
+| problems | [Problem](#protocol.Problem) | repeated | 默认题目 |
 
 
 

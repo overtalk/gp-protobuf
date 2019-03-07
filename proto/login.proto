@@ -7,7 +7,7 @@ import "proto/common.proto";
 
 option go_package = "go;protocol";
 
-// 登陆
+// 登陆 (post)
 message LoginReq
 {
     string username = 1;
@@ -22,12 +22,8 @@ message LoginResp
 }
 
 
-// 登出
-message LogOutReq
-{
-    string username = 1;
-}
-message LogOutResp
+// 登出 (get)
+message LogOut
 {
     Code code = 1;
 }

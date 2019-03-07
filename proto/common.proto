@@ -23,11 +23,27 @@ message UserInfo
     int64 last_login = 7;
 }
 
+// Problem : 题目
+message Problem
+{
+    enum Difficluty
+    {
+        EASY = 0;
+        MEDIUM = 1;
+        HARD = 2;
+    }
+    string id = 1;                  // 题目id（目前暂定string，可能改成int64）
+    string introduction = 2;        // 题目简介
+    string details = 3;             // 题目内容
+    repeated string category = 4;   // 题目类别
+    float pass_rate = 5;            // 通过率
+    Difficluty difficluty = 6;      // 难度
+}
+
 // SubmitRecord : 提交情况
 message SubmitRecord
 {
-    string id = 1;              // 题目id（目前暂定string，可能改成int64）
-    string introduction = 2;    // 题目简介
-    int64 submit_time = 3;      // 提交时间戳
-    bool is_pass = 4;           // 是否通过
+    Problem problem = 1;        // 题目
+    int64 submit_time = 2;      // 提交时间戳
+    bool is_pass = 3;           // 是否通过
 }
