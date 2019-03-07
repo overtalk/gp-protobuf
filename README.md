@@ -1,6 +1,6 @@
 # Documents
 
-- [Introduction](./docs/pvp.md)
+- [Introduction](./docs/introduction.md)
 
 # Development Guide
 

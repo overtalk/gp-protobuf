@@ -29,5 +29,5 @@ message SubmitRecord
     string id = 1;              // 题目id（目前暂定string，可能改成int64）
     string introduction = 2;    // 题目简介
     int64 submit_time = 3;      // 提交时间戳
-    bool is_pass = 4;            // 是否通过
+    bool is_pass = 4;           // 是否通过
 }
