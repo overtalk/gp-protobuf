@@ -23,6 +23,7 @@ message UserInfo
     string major = 5;       // 专业
     string email = 6;
     int64 last_login = 7;
+    int64 create = 9;
 }
 
 // Problem : 题目

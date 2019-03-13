@@ -146,6 +146,7 @@ UserInfo : 用户基本信息
 | major | [string](#string) |  | 专业 |
 | email | [string](#string) |  |  |
 | last_login | [int64](#int64) |  |  |
+| create | [int64](#int64) |  |  |
 
 
 
