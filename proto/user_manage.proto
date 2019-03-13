@@ -7,47 +7,43 @@ import "proto/common.proto";
 
 option go_package = "go;protocol";
 
-// 
+// 批量获取用户信息
 message GetUsersReq
 {
     Role role = 1;
     bool get_all = 2;
 }
-
 message GetUsersResp
 {
     Code code = 1;
     repeated UserInfo users = 2;
 }
 
-// 
+// 批量增加用户
 message AddUsersReq
 {
     repeated UserInfo users = 1;
 }
-
 message AddUsersResp
 {
     Code code = 1;
 }
 
-//
+// 批量修改用户
 message UpdateUserReq
 {
-    repeated UserInfo user = 1;
+    repeated UserInfo user = 1;  // 只需要填充id以及改变的field
 }
-
 message UpdateUserResp
 {
     Code code = 1;
 }
 
-//
+// 批量删除用户
 message DelUserReq
 {
-    repeated UserInfo user = 1;     // 填充 user id 即可
+    repeated UserInfo user = 1;     // 填充 user id 即可，或者是没用id，填充删除条件，相当于where
 }
-
 message DelUserResp
 {
     Code code = 1;
