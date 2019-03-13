@@ -40,12 +40,12 @@
 - [proto/user_manage.proto](#proto/user_manage.proto)
     - [AddUsersReq](#protocol.AddUsersReq)
     - [AddUsersResp](#protocol.AddUsersResp)
-    - [DelUserReq](#protocol.DelUserReq)
-    - [DelUserResp](#protocol.DelUserResp)
+    - [DelUsersReq](#protocol.DelUsersReq)
+    - [DelUsersResp](#protocol.DelUsersResp)
     - [GetUsersReq](#protocol.GetUsersReq)
     - [GetUsersResp](#protocol.GetUsersResp)
-    - [UpdateUserReq](#protocol.UpdateUserReq)
-    - [UpdateUserResp](#protocol.UpdateUserResp)
+    - [UpdateUsersReq](#protocol.UpdateUsersReq)
+    - [UpdateUsersResp](#protocol.UpdateUsersResp)
   
   
   
@@ -293,7 +293,7 @@ Role : 用户角色（学生/老师...）
 <a name="protocol.AddUsersReq"></a>
 
 ### AddUsersReq
-
+批量增加用户
 
 
 | Field | Type | Label | Description |
@@ -320,24 +320,24 @@ Role : 用户角色（学生/老师...）
 
 
 
-<a name="protocol.DelUserReq"></a>
+<a name="protocol.DelUsersReq"></a>
 
-### DelUserReq
-
+### DelUsersReq
+批量删除用户
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| user | [UserInfo](#protocol.UserInfo) | repeated | 填充 user id 即可 |
+| user | [UserInfo](#protocol.UserInfo) | repeated | 填充 user id 即可，或者是没用id，填充删除条件，相当于where |
 
 
 
 
 
 
-<a name="protocol.DelUserResp"></a>
+<a name="protocol.DelUsersResp"></a>
 
-### DelUserResp
+### DelUsersResp
 
 
 
@@ -353,7 +353,7 @@ Role : 用户角色（学生/老师...）
 <a name="protocol.GetUsersReq"></a>
 
 ### GetUsersReq
-
+批量获取用户信息
 
 
 | Field | Type | Label | Description |
@@ -382,24 +382,24 @@ Role : 用户角色（学生/老师...）
 
 
 
-<a name="protocol.UpdateUserReq"></a>
+<a name="protocol.UpdateUsersReq"></a>
 
-### UpdateUserReq
-
+### UpdateUsersReq
+批量修改用户
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| user | [UserInfo](#protocol.UserInfo) | repeated |  |
+| user | [UserInfo](#protocol.UserInfo) | repeated | 只需要填充id以及改变的field |
 
 
 
 
 
 
-<a name="protocol.UpdateUserResp"></a>
+<a name="protocol.UpdateUsersResp"></a>
 
-### UpdateUserResp
+### UpdateUsersResp
 
 
 

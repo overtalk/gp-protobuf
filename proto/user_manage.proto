@@ -30,21 +30,21 @@ message AddUsersResp
 }
 
 // 批量修改用户
-message UpdateUserReq
+message UpdateUsersReq
 {
     repeated UserInfo user = 1;  // 只需要填充id以及改变的field
 }
-message UpdateUserResp
+message UpdateUsersResp
 {
     Code code = 1;
 }
 
 // 批量删除用户
-message DelUserReq
+message DelUsersReq
 {
     repeated UserInfo user = 1;     // 填充 user id 即可，或者是没用id，填充删除条件，相当于where
 }
-message DelUserResp
+message DelUsersResp
 {
     Code code = 1;
 }
