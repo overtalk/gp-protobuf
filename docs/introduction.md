@@ -37,6 +37,20 @@
   
   
 
+- [proto/user_manage.proto](#proto/user_manage.proto)
+    - [AddUsersReq](#protocol.AddUsersReq)
+    - [AddUsersResp](#protocol.AddUsersResp)
+    - [DelUserReq](#protocol.DelUserReq)
+    - [DelUserResp](#protocol.DelUserResp)
+    - [GetUsersReq](#protocol.GetUsersReq)
+    - [GetUsersResp](#protocol.GetUsersResp)
+    - [UpdateUserReq](#protocol.UpdateUserReq)
+    - [UpdateUserResp](#protocol.UpdateUserResp)
+  
+  
+  
+  
+
 - [Scalar Value Types](#scalar-value-types)
 
 
@@ -123,6 +137,7 @@ UserInfo : 用户基本信息
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  |  |
 | name | [string](#string) |  |  |
 | sex | [bool](#bool) |  |  |
 | role | [Role](#protocol.Role) |  |  |
@@ -160,6 +175,7 @@ Role : 用户角色（学生/老师...）
 | ---- | ------ | ----------- |
 | STUDENT | 0 |  |
 | TEACHER | 1 |  |
+| MANAGER | 2 |  |
 
 
  
@@ -252,6 +268,144 @@ Role : 用户角色（学生/老师...）
 | ----- | ---- | ----- | ----------- |
 | categories | [string](#string) | repeated | 所有类别 |
 | problems | [Problem](#protocol.Problem) | repeated | 默认题目 |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="proto/user_manage.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## proto/user_manage.proto
+
+
+
+<a name="protocol.AddUsersReq"></a>
+
+### AddUsersReq
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| users | [UserInfo](#protocol.UserInfo) | repeated |  |
+
+
+
+
+
+
+<a name="protocol.AddUsersResp"></a>
+
+### AddUsersResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#protocol.Code) |  |  |
+
+
+
+
+
+
+<a name="protocol.DelUserReq"></a>
+
+### DelUserReq
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user | [UserInfo](#protocol.UserInfo) | repeated | 填充 user id 即可 |
+
+
+
+
+
+
+<a name="protocol.DelUserResp"></a>
+
+### DelUserResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#protocol.Code) |  |  |
+
+
+
+
+
+
+<a name="protocol.GetUsersReq"></a>
+
+### GetUsersReq
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| role | [Role](#protocol.Role) |  |  |
+| get_all | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="protocol.GetUsersResp"></a>
+
+### GetUsersResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#protocol.Code) |  |  |
+| users | [UserInfo](#protocol.UserInfo) | repeated |  |
+
+
+
+
+
+
+<a name="protocol.UpdateUserReq"></a>
+
+### UpdateUserReq
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| user | [UserInfo](#protocol.UserInfo) | repeated |  |
+
+
+
+
+
+
+<a name="protocol.UpdateUserResp"></a>
+
+### UpdateUserResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#protocol.Code) |  |  |
 
 
 

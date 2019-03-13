@@ -1,0 +1,54 @@
+syntax = "proto3";
+
+package protocol;
+
+import "proto/code.proto";
+import "proto/common.proto";
+
+option go_package = "go;protocol";
+
+// 
+message GetUsersReq
+{
+    Role role = 1;
+    bool get_all = 2;
+}
+
+message GetUsersResp
+{
+    Code code = 1;
+    repeated UserInfo users = 2;
+}
+
+// 
+message AddUsersReq
+{
+    repeated UserInfo users = 1;
+}
+
+message AddUsersResp
+{
+    Code code = 1;
+}
+
+//
+message UpdateUserReq
+{
+    repeated UserInfo user = 1;
+}
+
+message UpdateUserResp
+{
+    Code code = 1;
+}
+
+//
+message DelUserReq
+{
+    repeated UserInfo user = 1;     // 填充 user id 即可
+}
+
+message DelUserResp
+{
+    Code code = 1;
+}

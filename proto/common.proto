@@ -9,11 +9,13 @@ enum Role
 {
     STUDENT = 0;
     TEACHER = 1;
+    MANAGER = 2;
 }
 
 // UserInfo : 用户基本信息
 message UserInfo 
 {
+    int64 id = 8;
     string name = 1;
     bool sex = 2;
     Role role = 3;
