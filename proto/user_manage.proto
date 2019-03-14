@@ -46,11 +46,11 @@ message UpdateUsersResp
 // 批量删除用户
 message DelUsersReq
 {
-    repeated UserInfo users = 1;     // 填充 user id 即可，或者是没用id，填充删除条件，相当于where
+    repeated int64 users_id = 1; 
 }
 message DelUsersResp
 {
     Code code = 1;
-    repeated UserInfo succeed = 2;
-    repeated UserInfo fail = 3;
+    repeated int64 succeed = 2;
+    repeated int64 fail = 3;
 }

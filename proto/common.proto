@@ -15,17 +15,18 @@ enum Role
 // UserInfo : 用户基本信息
 message UserInfo 
 {
-    int64 id = 8;
-    string name = 1;
-    bool sex = 2;
-    Role role = 3;
-    string academy = 4;     // 学院
-    string major = 5;       // 专业
-    string email = 6;
-    int64 last_login = 7;
-    int64 create = 9;
-    string username = 10;   // 这两个字段只有在用户管理中的新增用户才会用到, 客户端向服务端发送数据是填充
-    string password = 11;
+    int64 id = 1;
+    Role role = 4;
+    string name = 5;
+    bool sex = 6;
+    string email = 7;
+    string academy = 8;     // 学院
+    string major = 9;       // 专业
+    int64 last_login = 10;
+    int64 create = 11;
+
+    string account = 2;   // 这两个字段只有在用户管理中的新增用户才会用到, 客户端向服务端发送数据是填充
+    string password = 3;
 }
 
 // Problem : 题目

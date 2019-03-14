@@ -10,7 +10,7 @@ option go_package = "go;protocol";
 // 登陆 (post)
 message LoginReq
 {
-    string username = 1;
+    string account = 1;
     string password = 2;
 }
 message LoginResp
