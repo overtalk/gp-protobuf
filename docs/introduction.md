@@ -147,6 +147,8 @@ UserInfo : 用户基本信息
 | email | [string](#string) |  |  |
 | last_login | [int64](#int64) |  |  |
 | create | [int64](#int64) |  |  |
+| username | [string](#string) |  | 这两个字段只有在用户管理中的新增用户才会用到, 客户端向服务端发送数据是填充 |
+| password | [string](#string) |  |  |
 
 
 
@@ -316,6 +318,8 @@ Role : 用户角色（学生/老师...）
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [Code](#protocol.Code) |  |  |
+| succeed | [UserInfo](#protocol.UserInfo) | repeated |  |
+| fail | [UserInfo](#protocol.UserInfo) | repeated |  |
 
 
 
@@ -330,7 +334,7 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| user | [UserInfo](#protocol.UserInfo) | repeated | 填充 user id 即可，或者是没用id，填充删除条件，相当于where |
+| users | [UserInfo](#protocol.UserInfo) | repeated | 填充 user id 即可，或者是没用id，填充删除条件，相当于where |
 
 
 
@@ -346,6 +350,8 @@ Role : 用户角色（学生/老师...）
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [Code](#protocol.Code) |  |  |
+| succeed | [UserInfo](#protocol.UserInfo) | repeated |  |
+| fail | [UserInfo](#protocol.UserInfo) | repeated |  |
 
 
 
@@ -392,7 +398,7 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| user | [UserInfo](#protocol.UserInfo) | repeated | 只需要填充id以及改变的field |
+| users | [UserInfo](#protocol.UserInfo) | repeated | 只需要填充id以及改变的field |
 
 
 
@@ -408,6 +414,8 @@ Role : 用户角色（学生/老师...）
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | code | [Code](#protocol.Code) |  |  |
+| succeed | [UserInfo](#protocol.UserInfo) | repeated |  |
+| fail | [UserInfo](#protocol.UserInfo) | repeated |  |
 
 
 

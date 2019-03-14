@@ -24,6 +24,8 @@ message UserInfo
     string email = 6;
     int64 last_login = 7;
     int64 create = 9;
+    string username = 10;   // 这两个字段只有在用户管理中的新增用户才会用到, 客户端向服务端发送数据是填充
+    string password = 11;
 }
 
 // Problem : 题目

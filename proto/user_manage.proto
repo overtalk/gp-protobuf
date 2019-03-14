@@ -27,24 +27,30 @@ message AddUsersReq
 message AddUsersResp
 {
     Code code = 1;
+    repeated UserInfo succeed = 2;
+    repeated UserInfo fail = 3;
 }
 
 // 批量修改用户
 message UpdateUsersReq
 {
-    repeated UserInfo user = 1;  // 只需要填充id以及改变的field
+    repeated UserInfo users = 1;  // 只需要填充id以及改变的field
 }
 message UpdateUsersResp
 {
     Code code = 1;
+    repeated UserInfo succeed = 2;
+    repeated UserInfo fail = 3;
 }
 
 // 批量删除用户
 message DelUsersReq
 {
-    repeated UserInfo user = 1;     // 填充 user id 即可，或者是没用id，填充删除条件，相当于where
+    repeated UserInfo users = 1;     // 填充 user id 即可，或者是没用id，填充删除条件，相当于where
 }
 message DelUsersResp
 {
     Code code = 1;
+    repeated UserInfo succeed = 2;
+    repeated UserInfo fail = 3;
 }
