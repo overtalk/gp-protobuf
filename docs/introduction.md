@@ -142,9 +142,9 @@ UserInfo : 用户基本信息
 | role | [Role](#protocol.Role) |  |  |
 | name | [string](#string) |  |  |
 | sex | [bool](#bool) |  |  |
+| phone | [string](#string) |  |  |
 | email | [string](#string) |  |  |
-| academy | [string](#string) |  | 学院 |
-| major | [string](#string) |  | 专业 |
+| school | [string](#string) |  |  |
 | last_login | [int64](#int64) |  |  |
 | create | [int64](#int64) |  |  |
 | account | [string](#string) |  | 这两个字段只有在用户管理中的新增用户才会用到, 客户端向服务端发送数据是填充 |

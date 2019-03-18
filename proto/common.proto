@@ -19,9 +19,9 @@ message UserInfo
     Role role = 4;
     string name = 5;
     bool sex = 6;
-    string email = 7;
-    string academy = 8;     // 学院
-    string major = 9;       // 专业
+    string phone = 7;
+    string email = 8;    
+    string school = 9;       
     int64 last_login = 10;
     int64 create = 11;
 
