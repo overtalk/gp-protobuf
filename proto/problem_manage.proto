@@ -1,0 +1,41 @@
+syntax = "proto3";
+
+package protocol;
+
+import "proto/code.proto";
+import "proto/common.proto";
+
+option go_package = "go;protocol";
+
+// 获取全部题目信息（只下发 id & title & difficulty & pass_rate）
+message GetProblemsReq
+{
+    string tag = 1;
+}
+message GetProblemsResp
+{
+    Code code = 1;
+    repeated Problem problems = 2;
+}
+
+// 根据ID获得题目具体信息
+message GetProblemByIDReq
+{
+    int64 id = 1;
+}
+message GetProblemByIDResp
+{
+    Code code = 1;
+    Problem problem = 2;
+}
+
+// 新增题目
+message AddProblemReq
+{
+    Problem problem = 1;
+}
+message AddProblemResp
+{
+    Code code = 1;
+    bool is_success = 2;
+}

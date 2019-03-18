@@ -12,6 +12,14 @@ enum Role
     MANAGER = 2;
 }
 
+// ProblemDifficluty : 题目难度
+enum ProblemDifficluty
+{
+    EASY = 0;
+    MEDIUM = 1;
+    HARD = 2;
+}
+
 // UserInfo : 用户基本信息
 message UserInfo 
 {
@@ -29,21 +37,38 @@ message UserInfo
     string password = 3;
 }
 
+// ProblemExample : 题目输入输出样例
+message ProblemExample
+{
+    string input = 1;
+    string output = 2;
+}
+
+// ProblemJudgeLimit : 判题的限制
+message ProblemJudgeLimit
+{
+    string time = 1;
+    string mem = 2;
+}
+
 // Problem : 题目
 message Problem
 {
-    enum Difficluty
-    {
-        EASY = 0;
-        MEDIUM = 1;
-        HARD = 2;
-    }
-    string id = 1;                  // 题目id（目前暂定string，可能改成int64）
-    string introduction = 2;        // 题目简介
-    string details = 3;             // 题目内容
-    repeated string category = 4;   // 题目类别
-    float pass_rate = 5;            // 通过率
-    Difficluty difficluty = 6;      // 难度
+    int64 id = 1;                                   // 题目id
+    string title = 2;                               // 题目标题
+    string description = 3;                         // 题目描述
+    string in = 4;                                  // 输入
+    string out = 5;                                 // 输出
+    string hint = 6;                                // 题目提示
+    repeated ProblemExample in_out_examples = 7;    // 输入输出样例
+    ProblemJudgeLimit judge_limit = 8;              // 判题限制                 
+    repeated string tags = 9;                       // 题目标签
+    ProblemDifficluty difficluty = 10;              // 难度
+    int64 submit_time = 11;                         // 提交次数
+    int64 accept_time = 12;                         // 通过次数
+
+    string judge_in_file = 13;                      // 判题输入输出文件，只有在新建题目时需要用到
+    string judge_out_file = 14;
 }
 
 // SubmitRecord : 提交情况

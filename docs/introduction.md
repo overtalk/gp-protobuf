@@ -12,10 +12,12 @@
 
 - [proto/common.proto](#proto/common.proto)
     - [Problem](#protocol.Problem)
+    - [ProblemExample](#protocol.ProblemExample)
+    - [ProblemJudgeLimit](#protocol.ProblemJudgeLimit)
     - [SubmitRecord](#protocol.SubmitRecord)
     - [UserInfo](#protocol.UserInfo)
   
-    - [Problem.Difficluty](#protocol.Problem.Difficluty)
+    - [ProblemDifficluty](#protocol.ProblemDifficluty)
     - [Role](#protocol.Role)
   
   
@@ -30,8 +32,13 @@
   
   
 
-- [proto/problem.proto](#proto/problem.proto)
-    - [ProblemList](#protocol.ProblemList)
+- [proto/problem_manage.proto](#proto/problem_manage.proto)
+    - [AddProblemReq](#protocol.AddProblemReq)
+    - [AddProblemResp](#protocol.AddProblemResp)
+    - [GetProblemByIDReq](#protocol.GetProblemByIDReq)
+    - [GetProblemByIDResp](#protocol.GetProblemByIDResp)
+    - [GetProblemsReq](#protocol.GetProblemsReq)
+    - [GetProblemsResp](#protocol.GetProblemsResp)
   
   
   
@@ -101,12 +108,52 @@ Problem : 题目
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| id | [string](#string) |  | 题目id（目前暂定string，可能改成int64） |
-| introduction | [string](#string) |  | 题目简介 |
-| details | [string](#string) |  | 题目内容 |
-| category | [string](#string) | repeated | 题目类别 |
-| pass_rate | [float](#float) |  | 通过率 |
-| difficluty | [Problem.Difficluty](#protocol.Problem.Difficluty) |  | 难度 |
+| id | [int64](#int64) |  | 题目id |
+| title | [string](#string) |  | 题目标题 |
+| description | [string](#string) |  | 题目描述 |
+| in | [string](#string) |  | 输入 |
+| out | [string](#string) |  | 输出 |
+| hint | [string](#string) |  | 题目提示 |
+| in_out_examples | [ProblemExample](#protocol.ProblemExample) | repeated | 输入输出样例 |
+| judge_limit | [ProblemJudgeLimit](#protocol.ProblemJudgeLimit) |  | 判题限制 |
+| tags | [string](#string) | repeated | 题目标签 |
+| difficluty | [ProblemDifficluty](#protocol.ProblemDifficluty) |  | 难度 |
+| submit_time | [int64](#int64) |  | 提交次数 |
+| accept_time | [int64](#int64) |  | 通过次数 |
+| judge_in_file | [string](#string) |  | 判题输入输出文件，只有在新建题目时需要用到 |
+| judge_out_file | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="protocol.ProblemExample"></a>
+
+### ProblemExample
+ProblemExample : 题目输入输出样例
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| input | [string](#string) |  |  |
+| output | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="protocol.ProblemJudgeLimit"></a>
+
+### ProblemJudgeLimit
+ProblemJudgeLimit : 判题的限制
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| time | [string](#string) |  |  |
+| mem | [string](#string) |  |  |
 
 
 
@@ -157,10 +204,10 @@ UserInfo : 用户基本信息
  
 
 
-<a name="protocol.Problem.Difficluty"></a>
+<a name="protocol.ProblemDifficluty"></a>
 
-### Problem.Difficluty
-
+### ProblemDifficluty
+ProblemDifficluty : 题目难度
 
 | Name | Number | Description |
 | ---- | ------ | ----------- |
@@ -255,23 +302,100 @@ Role : 用户角色（学生/老师...）
 
 
 
-<a name="proto/problem.proto"></a>
+<a name="proto/problem_manage.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
-## proto/problem.proto
+## proto/problem_manage.proto
 
 
 
-<a name="protocol.ProblemList"></a>
+<a name="protocol.AddProblemReq"></a>
 
-### ProblemList
-题目分类列表（get）
+### AddProblemReq
+新增题目
 
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| categories | [string](#string) | repeated | 所有类别 |
-| problems | [Problem](#protocol.Problem) | repeated | 默认题目 |
+| problem | [Problem](#protocol.Problem) |  |  |
+
+
+
+
+
+
+<a name="protocol.AddProblemResp"></a>
+
+### AddProblemResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#protocol.Code) |  |  |
+| is_success | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="protocol.GetProblemByIDReq"></a>
+
+### GetProblemByIDReq
+根据ID获得题目具体信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="protocol.GetProblemByIDResp"></a>
+
+### GetProblemByIDResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#protocol.Code) |  |  |
+| problem | [Problem](#protocol.Problem) |  |  |
+
+
+
+
+
+
+<a name="protocol.GetProblemsReq"></a>
+
+### GetProblemsReq
+获取全部题目信息（只下发 id &amp; title &amp; difficulty &amp; pass_rate）
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| tag | [string](#string) |  |  |
+
+
+
+
+
+
+<a name="protocol.GetProblemsResp"></a>
+
+### GetProblemsResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#protocol.Code) |  |  |
+| problems | [Problem](#protocol.Problem) | repeated |  |
 
 
 
