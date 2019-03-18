@@ -120,8 +120,8 @@ Problem : 题目
 | difficluty | [ProblemDifficluty](#protocol.ProblemDifficluty) |  | 难度 |
 | submit_time | [int64](#int64) |  | 提交次数 |
 | accept_time | [int64](#int64) |  | 通过次数 |
-| judge_in_file | [string](#string) |  | 判题输入输出文件，只有在新建题目时需要用到 |
-| judge_out_file | [string](#string) |  |  |
+| judge_in_file | [bytes](#bytes) |  | 判题输入输出文件，只有在新建题目时需要用到 |
+| judge_out_file | [bytes](#bytes) |  |  |
 
 
 

@@ -67,8 +67,8 @@ message Problem
     int64 submit_time = 11;                         // 提交次数
     int64 accept_time = 12;                         // 通过次数
 
-    string judge_in_file = 13;                      // 判题输入输出文件，只有在新建题目时需要用到
-    string judge_out_file = 14;
+    bytes judge_in_file = 13;                      // 判题输入输出文件，只有在新建题目时需要用到
+    bytes judge_out_file = 14;
 }
 
 // SubmitRecord : 提交情况
