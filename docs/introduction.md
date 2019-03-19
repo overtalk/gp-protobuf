@@ -3,13 +3,6 @@
 
 ## Table of Contents
 
-- [proto/code.proto](#proto/code.proto)
-  
-    - [Code](#protocol.Code)
-  
-  
-  
-
 - [proto/common.proto](#proto/common.proto)
     - [Problem](#protocol.Problem)
     - [ProblemExample](#protocol.ProblemExample)
@@ -24,7 +17,6 @@
   
 
 - [proto/login.proto](#proto/login.proto)
-    - [LogOut](#protocol.LogOut)
     - [LoginReq](#protocol.LoginReq)
     - [LoginResp](#protocol.LoginResp)
   
@@ -61,37 +53,6 @@
   
 
 - [Scalar Value Types](#scalar-value-types)
-
-
-
-<a name="proto/code.proto"></a>
-<p align="right"><a href="#top">Top</a></p>
-
-## proto/code.proto
-
-
- 
-
-
-<a name="protocol.Code"></a>
-
-### Code
-Code : 状态码
-
-| Name | Number | Description |
-| ---- | ------ | ----------- |
-| OK | 0 |  |
-| INTERNAL | 1 | 服务端内部错误 |
-| INVAILD_DATA | 2 | 非法数据，post数据无法反序列化 |
-| INVAILD_TOKEN | 3 | 没有token，无法身份认证, 或者是是token错误之类，就是无法认证用户身份 |
-| PERMISSION_DENIED | 4 | 没有权限 |
-
-
- 
-
- 
-
- 
 
 
 
@@ -246,21 +207,6 @@ Role : 用户角色（学生/老师...）
 
 
 
-<a name="protocol.LogOut"></a>
-
-### LogOut
-登出 (get)
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| code | [Code](#protocol.Code) |  |  |
-
-
-
-
-
-
 <a name="protocol.LoginReq"></a>
 
 ### LoginReq
@@ -285,7 +231,6 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [Code](#protocol.Code) |  |  |
 | token | [string](#string) |  |  |
 | user | [UserInfo](#protocol.UserInfo) |  | 用户信息 |
 | submit_records | [SubmitRecord](#protocol.SubmitRecord) | repeated | submit记录 （ TODO: 可以考虑提到新的协议中） |
@@ -334,7 +279,6 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [Code](#protocol.Code) |  |  |
 | is_success | [bool](#bool) |  |  |
 
 
@@ -365,7 +309,6 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [Code](#protocol.Code) |  |  |
 | is_success | [bool](#bool) |  |  |
 
 
@@ -396,7 +339,6 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [Code](#protocol.Code) |  |  |
 | problem | [Problem](#protocol.Problem) |  |  |
 
 
@@ -427,7 +369,6 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [Code](#protocol.Code) |  |  |
 | problems | [Problem](#protocol.Problem) | repeated |  |
 
 
@@ -474,7 +415,6 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [Code](#protocol.Code) |  |  |
 | succeed | [UserInfo](#protocol.UserInfo) | repeated |  |
 | fail | [UserInfo](#protocol.UserInfo) | repeated |  |
 
@@ -506,7 +446,6 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [Code](#protocol.Code) |  |  |
 | succeed | [int64](#int64) | repeated |  |
 | fail | [int64](#int64) | repeated |  |
 
@@ -539,7 +478,6 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [Code](#protocol.Code) |  |  |
 | users | [UserInfo](#protocol.UserInfo) | repeated |  |
 
 
@@ -570,7 +508,6 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| code | [Code](#protocol.Code) |  |  |
 | succeed | [UserInfo](#protocol.UserInfo) | repeated |  |
 | fail | [UserInfo](#protocol.UserInfo) | repeated |  |
 

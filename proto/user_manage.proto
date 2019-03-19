@@ -2,7 +2,6 @@ syntax = "proto3";
 
 package protocol;
 
-import "proto/code.proto";
 import "proto/common.proto";
 
 option go_package = "go;protocol";
@@ -15,8 +14,7 @@ message GetUsersReq
 }
 message GetUsersResp
 {
-    Code code = 1;
-    repeated UserInfo users = 2;
+    repeated UserInfo users = 1;
 }
 
 // 批量增加用户
@@ -26,9 +24,8 @@ message AddUsersReq
 }
 message AddUsersResp
 {
-    Code code = 1;
-    repeated UserInfo succeed = 2;
-    repeated UserInfo fail = 3;
+    repeated UserInfo succeed = 1;
+    repeated UserInfo fail = 2;
 }
 
 // 批量修改用户
@@ -38,9 +35,8 @@ message UpdateUsersReq
 }
 message UpdateUsersResp
 {
-    Code code = 1;
-    repeated UserInfo succeed = 2;
-    repeated UserInfo fail = 3;
+    repeated UserInfo succeed = 1;
+    repeated UserInfo fail = 2;
 }
 
 // 批量删除用户
@@ -50,7 +46,6 @@ message DelUsersReq
 }
 message DelUsersResp
 {
-    Code code = 1;
-    repeated int64 succeed = 2;
-    repeated int64 fail = 3;
+    repeated int64 succeed = 1;
+    repeated int64 fail = 2;
 }
