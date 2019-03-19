@@ -39,3 +39,15 @@ message AddProblemResp
     Code code = 1;
     bool is_success = 2;
 }
+
+// 编辑题目
+message EditProblemReq
+{
+    Problem problem = 1;    // 需要id
+}
+message EditProblemResp
+{
+    Code code = 1;
+    bool is_success = 2;
+}
+

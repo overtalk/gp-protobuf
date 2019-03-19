@@ -35,6 +35,8 @@
 - [proto/problem_manage.proto](#proto/problem_manage.proto)
     - [AddProblemReq](#protocol.AddProblemReq)
     - [AddProblemResp](#protocol.AddProblemResp)
+    - [EditProblemReq](#protocol.EditProblemReq)
+    - [EditProblemResp](#protocol.EditProblemResp)
     - [GetProblemByIDReq](#protocol.GetProblemByIDReq)
     - [GetProblemByIDResp](#protocol.GetProblemByIDResp)
     - [GetProblemsReq](#protocol.GetProblemsReq)
@@ -327,6 +329,37 @@ Role : 用户角色（学生/老师...）
 <a name="protocol.AddProblemResp"></a>
 
 ### AddProblemResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#protocol.Code) |  |  |
+| is_success | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="protocol.EditProblemReq"></a>
+
+### EditProblemReq
+编辑题目
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| problem | [Problem](#protocol.Problem) |  | 需要id |
+
+
+
+
+
+
+<a name="protocol.EditProblemResp"></a>
+
+### EditProblemResp
 
 
 
