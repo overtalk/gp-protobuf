@@ -3,6 +3,7 @@ syntax = "proto3";
 package protocol;
 
 import "proto/common.proto";
+import "proto/status.proto";
 
 option go_package = "go;protocol";
 
@@ -13,7 +14,8 @@ message GetProblemsReq
 }
 message GetProblemsResp
 {
-    repeated Problem problems = 1;
+    Status status = 1;
+    repeated Problem problems = 2;
 }
 
 // 根据ID获得题目具体信息
@@ -23,7 +25,8 @@ message GetProblemByIDReq
 }
 message GetProblemByIDResp
 {
-    Problem problem = 1;
+    Status status = 1;
+    Problem problem = 2;
 }
 
 // 新增题目
@@ -33,7 +36,8 @@ message AddProblemReq
 }
 message AddProblemResp
 {
-    bool is_success = 1;
+    Status status = 1;
+    bool is_success = 2;
 }
 
 // 编辑题目
@@ -43,6 +47,7 @@ message EditProblemReq
 }
 message EditProblemResp
 {
-    bool is_success = 1;
+    Status status = 1;
+    bool is_success = 2;
 }
 
