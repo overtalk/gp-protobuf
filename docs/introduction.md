@@ -38,6 +38,14 @@
   
   
 
+- [proto/status.proto](#proto/status.proto)
+    - [Status](#protocol.Status)
+  
+    - [Code](#protocol.Code)
+  
+  
+  
+
 - [proto/user_manage.proto](#proto/user_manage.proto)
     - [AddUsersReq](#protocol.AddUsersReq)
     - [AddUsersResp](#protocol.AddUsersResp)
@@ -231,6 +239,7 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
 | token | [string](#string) |  |  |
 | user | [UserInfo](#protocol.UserInfo) |  | 用户信息 |
 | submit_records | [SubmitRecord](#protocol.SubmitRecord) | repeated | submit记录 （ TODO: 可以考虑提到新的协议中） |
@@ -279,6 +288,7 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
 | is_success | [bool](#bool) |  |  |
 
 
@@ -309,6 +319,7 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
 | is_success | [bool](#bool) |  |  |
 
 
@@ -339,6 +350,7 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
 | problem | [Problem](#protocol.Problem) |  |  |
 
 
@@ -355,6 +367,8 @@ Role : 用户角色（学生/老师...）
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | tag | [string](#string) |  |  |
+| page_index | [int64](#int64) |  |  |
+| page_num | [int64](#int64) |  |  |
 
 
 
@@ -369,13 +383,63 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
 | problems | [Problem](#protocol.Problem) | repeated |  |
+| page_index | [int64](#int64) |  |  |
+| page_num | [int64](#int64) |  |  |
 
 
 
 
 
  
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="proto/status.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## proto/status.proto
+
+
+
+<a name="protocol.Status"></a>
+
+### Status
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| code | [Code](#protocol.Code) |  |  |
+| message | [string](#string) |  |  |
+
+
+
+
+
+ 
+
+
+<a name="protocol.Code"></a>
+
+### Code
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| OK | 0 | ok |
+| INTERNAL | 1 | 服务端内部错误 |
+| DATA_LOSE | 2 | 数据序列化错误 |
+| NO_TOKEN | 3 | 没有token |
+| UNAUTHORIZATED | 4 | token错误 |
+
 
  
 
@@ -415,6 +479,7 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
 | succeed | [UserInfo](#protocol.UserInfo) | repeated |  |
 | fail | [UserInfo](#protocol.UserInfo) | repeated |  |
 
@@ -446,6 +511,7 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
 | succeed | [int64](#int64) | repeated |  |
 | fail | [int64](#int64) | repeated |  |
 
@@ -464,6 +530,8 @@ Role : 用户角色（学生/老师...）
 | ----- | ---- | ----- | ----------- |
 | role | [Role](#protocol.Role) |  |  |
 | get_all | [bool](#bool) |  |  |
+| page_index | [int64](#int64) |  |  |
+| page_num | [int64](#int64) |  |  |
 
 
 
@@ -478,7 +546,10 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
 | users | [UserInfo](#protocol.UserInfo) | repeated |  |
+| page_index | [int64](#int64) |  |  |
+| page_num | [int64](#int64) |  |  |
 
 
 
@@ -508,6 +579,7 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
 | succeed | [UserInfo](#protocol.UserInfo) | repeated |  |
 | fail | [UserInfo](#protocol.UserInfo) | repeated |  |
 

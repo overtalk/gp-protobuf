@@ -12,11 +12,15 @@ message GetUsersReq
 {
     Role role = 1;
     bool get_all = 2;
+    int64 page_index = 3;
+    int64 page_num = 4;
 }
 message GetUsersResp
 {
     Status status = 1;
     repeated UserInfo users = 2;
+    int64 page_index = 3;
+    int64 page_num = 4;
 }
 
 // 批量增加用户
