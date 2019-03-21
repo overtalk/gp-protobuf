@@ -6,7 +6,6 @@
 - [proto/common.proto](#proto/common.proto)
     - [Problem](#protocol.Problem)
     - [ProblemExample](#protocol.ProblemExample)
-    - [ProblemJudgeLimit](#protocol.ProblemJudgeLimit)
     - [SubmitRecord](#protocol.SubmitRecord)
     - [UserInfo](#protocol.UserInfo)
   
@@ -19,6 +18,7 @@
 - [proto/login.proto](#proto/login.proto)
     - [LoginReq](#protocol.LoginReq)
     - [LoginResp](#protocol.LoginResp)
+    - [LogoutResp](#protocol.LogoutResp)
   
   
   
@@ -86,13 +86,12 @@ Problem : 题目
 | out | [string](#string) |  | 输出 |
 | hint | [string](#string) |  | 题目提示 |
 | in_out_examples | [ProblemExample](#protocol.ProblemExample) | repeated | 输入输出样例 |
-| judge_limit | [ProblemJudgeLimit](#protocol.ProblemJudgeLimit) |  | 判题限制 |
-| tags | [string](#string) | repeated | 题目标签 |
+| judge_limit_time | [int64](#int64) |  | 判题时间限制 |
+| judge_limit_mem | [int64](#int64) |  | 判题内存限制 |
+| tags | [int64](#int64) | repeated | 题目标签 |
 | difficluty | [ProblemDifficluty](#protocol.ProblemDifficluty) |  | 难度 |
 | submit_time | [int64](#int64) |  | 提交次数 |
 | accept_time | [int64](#int64) |  | 通过次数 |
-| judge_in_file | [bytes](#bytes) |  | 判题输入输出文件，只有在新建题目时需要用到 |
-| judge_out_file | [bytes](#bytes) |  |  |
 
 
 
@@ -109,22 +108,6 @@ ProblemExample : 题目输入输出样例
 | ----- | ---- | ----- | ----------- |
 | input | [string](#string) |  |  |
 | output | [string](#string) |  |  |
-
-
-
-
-
-
-<a name="protocol.ProblemJudgeLimit"></a>
-
-### ProblemJudgeLimit
-ProblemJudgeLimit : 判题的限制
-
-
-| Field | Type | Label | Description |
-| ----- | ---- | ----- | ----------- |
-| time | [string](#string) |  |  |
-| mem | [string](#string) |  |  |
 
 
 
@@ -243,6 +226,21 @@ Role : 用户角色（学生/老师...）
 | token | [string](#string) |  |  |
 | user | [UserInfo](#protocol.UserInfo) |  | 用户信息 |
 | submit_records | [SubmitRecord](#protocol.SubmitRecord) | repeated | submit记录 （ TODO: 可以考虑提到新的协议中） |
+
+
+
+
+
+
+<a name="protocol.LogoutResp"></a>
+
+### LogoutResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
 
 
 
@@ -439,6 +437,7 @@ Role : 用户角色（学生/老师...）
 | DATA_LOSE | 2 | 数据序列化错误 |
 | NO_TOKEN | 3 | 没有token |
 | UNAUTHORIZATED | 4 | token错误 |
+| PERMISSION_DENIED | 5 | 没有权限 |
 
 
  

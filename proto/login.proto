@@ -21,3 +21,7 @@ message LoginResp
     repeated SubmitRecord submit_records = 4;  // submit记录 （ TODO: 可以考虑提到新的协议中）
 }
 
+message LogoutResp
+{
+    Status status = 1;
+}

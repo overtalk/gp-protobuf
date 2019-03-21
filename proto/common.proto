@@ -44,12 +44,6 @@ message ProblemExample
     string output = 2;
 }
 
-// ProblemJudgeLimit : 判题的限制
-message ProblemJudgeLimit
-{
-    string time = 1;
-    string mem = 2;
-}
 
 // Problem : 题目
 message Problem
@@ -61,14 +55,12 @@ message Problem
     string out = 5;                                 // 输出
     string hint = 6;                                // 题目提示
     repeated ProblemExample in_out_examples = 7;    // 输入输出样例
-    ProblemJudgeLimit judge_limit = 8;              // 判题限制                 
-    repeated string tags = 9;                       // 题目标签
-    ProblemDifficluty difficluty = 10;              // 难度
-    int64 submit_time = 11;                         // 提交次数
-    int64 accept_time = 12;                         // 通过次数
-
-    bytes judge_in_file = 13;                      // 判题输入输出文件，只有在新建题目时需要用到
-    bytes judge_out_file = 14;
+    int64 judge_limit_time = 8;                     // 判题时间限制 
+    int64 judge_limit_mem = 9;                      // 判题内存限制   
+    repeated int64 tags = 10;                        // 题目标签
+    ProblemDifficluty difficluty = 11;              // 难度
+    int64 submit_time = 12;                         // 提交次数
+    int64 accept_time = 13;                         // 通过次数
 }
 
 // SubmitRecord : 提交情况
