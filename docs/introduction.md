@@ -364,7 +364,8 @@ Role : 用户角色（学生/老师...）
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| tag | [string](#string) |  |  |
+| tag | [int64](#int64) |  |  |
+| get_all | [bool](#bool) |  |  |
 | page_index | [int64](#int64) |  |  |
 | page_num | [int64](#int64) |  |  |
 
