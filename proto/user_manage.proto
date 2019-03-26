@@ -21,6 +21,7 @@ message GetUsersResp
     repeated UserInfo users = 2;
     int64 page_index = 3;
     int64 page_num = 4;
+    int64 total = 5;
 }
 
 // 批量增加用户

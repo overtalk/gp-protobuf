@@ -386,6 +386,7 @@ Role : 用户角色（学生/老师...）
 | problems | [Problem](#protocol.Problem) | repeated |  |
 | page_index | [int64](#int64) |  |  |
 | page_num | [int64](#int64) |  |  |
+| total | [int64](#int64) |  |  |
 
 
 
@@ -550,6 +551,7 @@ Role : 用户角色（学生/老师...）
 | users | [UserInfo](#protocol.UserInfo) | repeated |  |
 | page_index | [int64](#int64) |  |  |
 | page_num | [int64](#int64) |  |  |
+| total | [int64](#int64) |  |  |
 
 
 
