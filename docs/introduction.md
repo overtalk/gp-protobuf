@@ -3,7 +3,26 @@
 
 ## Table of Contents
 
+- [proto/class_manage.proto](#proto/class_manage.proto)
+    - [AddClassReq](#protocol.AddClassReq)
+    - [AddClassResp](#protocol.AddClassResp)
+    - [EditClassReq](#protocol.EditClassReq)
+    - [EditClassResp](#protocol.EditClassResp)
+    - [GetClassByIDReq](#protocol.GetClassByIDReq)
+    - [GetClassByIDResp](#protocol.GetClassByIDResp)
+    - [GetClassesReq](#protocol.GetClassesReq)
+    - [GetClassesResp](#protocol.GetClassesResp)
+    - [MemberManageReq](#protocol.MemberManageReq)
+    - [MemberManageResp](#protocol.MemberManageResp)
+  
+    - [MemberManageReq.ManageType](#protocol.MemberManageReq.ManageType)
+  
+  
+  
+
 - [proto/common.proto](#proto/common.proto)
+    - [Announcement](#protocol.Announcement)
+    - [Class](#protocol.Class)
     - [Problem](#protocol.Problem)
     - [ProblemExample](#protocol.ProblemExample)
     - [SubmitRecord](#protocol.SubmitRecord)
@@ -64,10 +83,240 @@
 
 
 
+<a name="proto/class_manage.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## proto/class_manage.proto
+
+
+
+<a name="protocol.AddClassReq"></a>
+
+### AddClassReq
+新增班级
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| class | [Class](#protocol.Class) |  |  |
+
+
+
+
+
+
+<a name="protocol.AddClassResp"></a>
+
+### AddClassResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
+| is_success | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="protocol.EditClassReq"></a>
+
+### EditClassReq
+修改班级信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| class | [Class](#protocol.Class) |  | 只需要填充id以及改变的field |
+
+
+
+
+
+
+<a name="protocol.EditClassResp"></a>
+
+### EditClassResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
+| is_success | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="protocol.GetClassByIDReq"></a>
+
+### GetClassByIDReq
+根据ID获得班级具体信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="protocol.GetClassByIDResp"></a>
+
+### GetClassByIDResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
+| class | [Class](#protocol.Class) |  |  |
+
+
+
+
+
+
+<a name="protocol.GetClassesReq"></a>
+
+### GetClassesReq
+批量获取班级信息(只包括基础的信息，班级名称)
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| page_index | [int64](#int64) |  |  |
+| page_num | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="protocol.GetClassesResp"></a>
+
+### GetClassesResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
+| classes | [Class](#protocol.Class) | repeated |  |
+| page_index | [int64](#int64) |  |  |
+| page_num | [int64](#int64) |  |  |
+| total | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="protocol.MemberManageReq"></a>
+
+### MemberManageReq
+小组成员管理
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| manage_type | [MemberManageReq.ManageType](#protocol.MemberManageReq.ManageType) |  |  |
+| class_id | [int64](#int64) |  |  |
+| member_id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="protocol.MemberManageResp"></a>
+
+### MemberManageResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
+| is_success | [bool](#bool) |  |  |
+
+
+
+
+
+ 
+
+
+<a name="protocol.MemberManageReq.ManageType"></a>
+
+### MemberManageReq.ManageType
+
+
+| Name | Number | Description |
+| ---- | ------ | ----------- |
+| DELETE | 0 | 删除小组成员 |
+| SET_ADMINISTRATOR | 1 | 设置成管理员 |
+| CANCEL_ADMINISTRATOR | 2 | 取消管理员 |
+
+
+ 
+
+ 
+
+ 
+
+
+
 <a name="proto/common.proto"></a>
 <p align="right"><a href="#top">Top</a></p>
 
 ## proto/common.proto
+
+
+
+<a name="protocol.Announcement"></a>
+
+### Announcement
+Announcement : 公告，包括班级公告和全局公告
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| publisher | [string](#string) |  | 发布人的姓名 |
+| detail | [string](#string) |  |  |
+| create_time | [int64](#int64) |  |  |
+| disable_time | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="protocol.Class"></a>
+
+### Class
+Class : 班级信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  | 班级id |
+| tutor | [string](#string) |  | 导师的姓名 |
+| name | [string](#string) |  | 班级名称 |
+| introduction | [string](#string) |  | 班级简介 |
+| number | [int64](#int64) |  | 班级人数 |
+| is_check | [bool](#bool) |  | 加入班级设置：false（无需审核，运行任何人进入），true（需要导师审核） |
+| create_time | [int64](#int64) |  | 班级创建时间 |
+| announcements | [Announcement](#protocol.Announcement) | repeated | 班级公告 |
+
+
+
 
 
 
