@@ -92,3 +92,12 @@ message Class
     int64 create_time = 7;                      // 班级创建时间
     repeated Announcement announcements = 8;    // 班级公告
 }
+
+// RankItem : 排名item
+message RankItem
+{
+    int64 ranking = 1;
+    string name = 2;
+    int64 pass_num = 3;
+    int64 submit_num = 4;
+}

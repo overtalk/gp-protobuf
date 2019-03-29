@@ -25,6 +25,7 @@
     - [Class](#protocol.Class)
     - [Problem](#protocol.Problem)
     - [ProblemExample](#protocol.ProblemExample)
+    - [RankItem](#protocol.RankItem)
     - [SubmitRecord](#protocol.SubmitRecord)
     - [UserInfo](#protocol.UserInfo)
   
@@ -52,6 +53,14 @@
     - [GetProblemByIDResp](#protocol.GetProblemByIDResp)
     - [GetProblemsReq](#protocol.GetProblemsReq)
     - [GetProblemsResp](#protocol.GetProblemsResp)
+  
+  
+  
+  
+
+- [proto/rank.proto](#proto/rank.proto)
+    - [RankListReq](#protocol.RankListReq)
+    - [RankListResp](#protocol.RankListResp)
   
   
   
@@ -363,6 +372,24 @@ ProblemExample : 题目输入输出样例
 
 
 
+<a name="protocol.RankItem"></a>
+
+### RankItem
+RankItem : 排名item
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| ranking | [int64](#int64) |  |  |
+| name | [string](#string) |  |  |
+| pass_num | [int64](#int64) |  |  |
+| submit_num | [int64](#int64) |  |  |
+
+
+
+
+
+
 <a name="protocol.SubmitRecord"></a>
 
 ### SubmitRecord
@@ -636,6 +663,58 @@ Role : 用户角色（学生/老师...）
 | page_index | [int64](#int64) |  |  |
 | page_num | [int64](#int64) |  |  |
 | total | [int64](#int64) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="proto/rank.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## proto/rank.proto
+
+
+
+<a name="protocol.RankListReq"></a>
+
+### RankListReq
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| page_index | [int64](#int64) |  |  |
+| page_num | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="protocol.RankListResp"></a>
+
+### RankListResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
+| rank_items | [RankItem](#protocol.RankItem) | repeated |  |
+| page_index | [int64](#int64) |  |  |
+| page_num | [int64](#int64) |  |  |
+| total | [int64](#int64) |  |  |
+| pos | [int64](#int64) |  |  |
 
 
 
