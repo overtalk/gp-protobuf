@@ -380,10 +380,11 @@ RankItem : 排名item
 
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
-| ranking | [int64](#int64) |  |  |
-| name | [string](#string) |  |  |
-| pass_num | [int64](#int64) |  |  |
-| submit_num | [int64](#int64) |  |  |
+| ranking | [int64](#int64) |  | 排名 |
+| user_id | [int64](#int64) |  | 用户id |
+| name | [string](#string) |  | 用户姓名 |
+| pass_num | [int64](#int64) |  | 通过题目数量 |
+| submit_num | [int64](#int64) |  | 提交次数 |
 
 
 

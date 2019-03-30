@@ -96,8 +96,9 @@ message Class
 // RankItem : 排名item
 message RankItem
 {
-    int64 ranking = 1;
-    string name = 2;
-    int64 pass_num = 3;
-    int64 submit_num = 4;
+    int64 ranking = 1;      // 排名
+    int64 user_id = 2;       // 用户id
+    string name = 3;        // 用户姓名
+    int64 pass_num = 4;     // 通过题目数量
+    int64 submit_num = 5;   // 提交次数
 }

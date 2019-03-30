@@ -42,3 +42,10 @@
 | 编辑班级 | /editClass | POST | class_manage.proto --> EditClassReq & EditClassResp |
 | 班级成员管理 | /memberManage | POST | class_manage.proto --> MemberManageReq & MemberManageResp |
 
+
+## 排行榜模块
+
+
+| 功能描述 | 路由 | HTTP方法 | protobuf |
+| ----- | ---- | ----- | ---- |
+| 排行榜信息 | /rank  | POST |  rank.proto --> RankListReq & RankListResp |
