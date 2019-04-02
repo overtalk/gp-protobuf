@@ -102,22 +102,3 @@ message RankItem
     int64 pass_num = 4;     // 通过题目数量
     int64 submit_num = 5;   // 提交次数
 }
-
-// Paper : 试卷
-message Paper
-{
-    int64 id = 1;
-    repeated Problem problems = 2;  // 题目
-    // 组卷的参数
-    // ...
-}
-
-// Match : 比赛
-message Match
-{
-    int64 id = 1;
-    bool is_public = 2;     // 是否是公开比赛
-    int64 start_time = 3;   // 开始时间
-    int64 duration = 4;     // 时间长度
-    bool is_over = 5;       // 是否结束
-}
