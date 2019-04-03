@@ -7,31 +7,6 @@ import "proto/status.proto";
 
 option go_package = "go;protocol";
 
-// Paper : 试卷
-message Paper
-{
-    int64 id = 1;
-    repeated Problem problems = 2;  // 题目
-    // 组卷的参数
-    int64 difficulty = 3;
-    int64 problem_num = 4;
-    repeated int64 knowledge_points = 5;
-}
-
-// Match : 比赛
-message Match
-{
-    int64 id = 1;
-    bool is_public = 2;         // 是否是公开比赛
-    int64 start_time = 3;       // 开始时间
-    int64 duration = 4;         // 时间长度
-    bool is_over = 5;           // 是否结束
-    string name = 6;            // 比赛名称
-    string intriduction = 7;    // 比赛简介
-    int64 paper_id = 8;         // 试卷id
-}
-
-
 // 创建比赛
 message NewMatchReq
 {

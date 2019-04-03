@@ -3,6 +3,18 @@
 
 ## Table of Contents
 
+- [proto/announcement.proto](#proto/announcement.proto)
+    - [AddAnnouncementReq](#protocol.AddAnnouncementReq)
+    - [AddAnnouncementResp](#protocol.AddAnnouncementResp)
+    - [AnnouncementDetailReq](#protocol.AnnouncementDetailReq)
+    - [AnnouncementDetailResp](#protocol.AnnouncementDetailResp)
+    - [AnnouncementsReq](#protocol.AnnouncementsReq)
+    - [AnnouncementsResp](#protocol.AnnouncementsResp)
+  
+  
+  
+  
+
 - [proto/class_manage.proto](#proto/class_manage.proto)
     - [AddClassReq](#protocol.AddClassReq)
     - [AddClassResp](#protocol.AddClassResp)
@@ -23,6 +35,8 @@
 - [proto/common.proto](#proto/common.proto)
     - [Announcement](#protocol.Announcement)
     - [Class](#protocol.Class)
+    - [Match](#protocol.Match)
+    - [Paper](#protocol.Paper)
     - [Problem](#protocol.Problem)
     - [ProblemExample](#protocol.ProblemExample)
     - [RankItem](#protocol.RankItem)
@@ -39,6 +53,22 @@
     - [LoginReq](#protocol.LoginReq)
     - [LoginResp](#protocol.LoginResp)
     - [LogoutResp](#protocol.LogoutResp)
+  
+  
+  
+  
+
+- [proto/match.proto](#proto/match.proto)
+    - [EditMatchReq](#protocol.EditMatchReq)
+    - [EditMatchResp](#protocol.EditMatchResp)
+    - [GetMatchByIDReq](#protocol.GetMatchByIDReq)
+    - [GetMatchByIDResp](#protocol.GetMatchByIDResp)
+    - [GetMatchesReq](#protocol.GetMatchesReq)
+    - [GetMatchesResp](#protocol.GetMatchesResp)
+    - [GetPaperByIDReq](#protocol.GetPaperByIDReq)
+    - [GetPaperByIDResp](#protocol.GetPaperByIDResp)
+    - [NewMatchReq](#protocol.NewMatchReq)
+    - [NewMatchResp](#protocol.NewMatchResp)
   
   
   
@@ -89,6 +119,108 @@
   
 
 - [Scalar Value Types](#scalar-value-types)
+
+
+
+<a name="proto/announcement.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## proto/announcement.proto
+
+
+
+<a name="protocol.AddAnnouncementReq"></a>
+
+### AddAnnouncementReq
+增加新公告
+
+
+
+
+
+
+<a name="protocol.AddAnnouncementResp"></a>
+
+### AddAnnouncementResp
+
+
+
+
+
+
+
+<a name="protocol.AnnouncementDetailReq"></a>
+
+### AnnouncementDetailReq
+获取公告具体信息
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="protocol.AnnouncementDetailResp"></a>
+
+### AnnouncementDetailResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
+| announcement | [Announcement](#protocol.Announcement) |  |  |
+
+
+
+
+
+
+<a name="protocol.AnnouncementsReq"></a>
+
+### AnnouncementsReq
+获取所有公告
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| page_index | [int64](#int64) |  |  |
+| page_num | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="protocol.AnnouncementsResp"></a>
+
+### AnnouncementsResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
+| announcements | [Announcement](#protocol.Announcement) | repeated |  |
+| page_index | [int64](#int64) |  |  |
+| page_num | [int64](#int64) |  |  |
+| total | [int64](#int64) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
 
 
 
@@ -298,9 +430,10 @@ Announcement : 公告，包括班级公告和全局公告
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | publisher | [string](#string) |  | 发布人的姓名 |
+| title | [string](#string) |  | 公告标题 |
 | detail | [string](#string) |  |  |
 | create_time | [int64](#int64) |  |  |
-| disable_time | [int64](#int64) |  |  |
+| last_update_time | [int64](#int64) |  |  |
 
 
 
@@ -323,6 +456,47 @@ Class : 班级信息
 | is_check | [bool](#bool) |  | 加入班级设置：false（无需审核，运行任何人进入），true（需要导师审核） |
 | create_time | [int64](#int64) |  | 班级创建时间 |
 | announcements | [Announcement](#protocol.Announcement) | repeated | 班级公告 |
+
+
+
+
+
+
+<a name="protocol.Match"></a>
+
+### Match
+Match : 比赛
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  |  |
+| is_public | [bool](#bool) |  | 是否是公开比赛 |
+| start_time | [int64](#int64) |  | 开始时间 |
+| duration | [int64](#int64) |  | 时间长度 |
+| is_over | [bool](#bool) |  | 是否结束 |
+| name | [string](#string) |  | 比赛名称 |
+| intriduction | [string](#string) |  | 比赛简介 |
+| paper_id | [int64](#int64) |  | 试卷id |
+
+
+
+
+
+
+<a name="protocol.Paper"></a>
+
+### Paper
+Paper : 试卷
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  |  |
+| problems | [Problem](#protocol.Problem) | repeated | 题目 |
+| difficulty | [int64](#int64) |  | 组卷的参数 |
+| problem_num | [int64](#int64) |  |  |
+| knowledge_points | [int64](#int64) | repeated |  |
 
 
 
@@ -518,6 +692,182 @@ Role : 用户角色（学生/老师...）
 | Field | Type | Label | Description |
 | ----- | ---- | ----- | ----------- |
 | status | [Status](#protocol.Status) |  |  |
+
+
+
+
+
+ 
+
+ 
+
+ 
+
+ 
+
+
+
+<a name="proto/match.proto"></a>
+<p align="right"><a href="#top">Top</a></p>
+
+## proto/match.proto
+
+
+
+<a name="protocol.EditMatchReq"></a>
+
+### EditMatchReq
+编辑比赛题目
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| match | [Match](#protocol.Match) |  |  |
+
+
+
+
+
+
+<a name="protocol.EditMatchResp"></a>
+
+### EditMatchResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
+| is_ok | [bool](#bool) |  |  |
+
+
+
+
+
+
+<a name="protocol.GetMatchByIDReq"></a>
+
+### GetMatchByIDReq
+拿到所有的比赛
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="protocol.GetMatchByIDResp"></a>
+
+### GetMatchByIDResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
+| match | [Match](#protocol.Match) |  |  |
+
+
+
+
+
+
+<a name="protocol.GetMatchesReq"></a>
+
+### GetMatchesReq
+拿到所有的比赛
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| page_index | [int64](#int64) |  |  |
+| page_num | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="protocol.GetMatchesResp"></a>
+
+### GetMatchesResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
+| page_index | [int64](#int64) |  |  |
+| page_num | [int64](#int64) |  |  |
+| total | [int64](#int64) |  |  |
+| matches | [Match](#protocol.Match) | repeated |  |
+
+
+
+
+
+
+<a name="protocol.GetPaperByIDReq"></a>
+
+### GetPaperByIDReq
+获取比赛试卷
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| id | [int64](#int64) |  |  |
+
+
+
+
+
+
+<a name="protocol.GetPaperByIDResp"></a>
+
+### GetPaperByIDResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
+| paper | [Paper](#protocol.Paper) |  |  |
+
+
+
+
+
+
+<a name="protocol.NewMatchReq"></a>
+
+### NewMatchReq
+创建比赛
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| paper | [Paper](#protocol.Paper) |  |  |
+| match | [Match](#protocol.Match) |  |  |
+
+
+
+
+
+
+<a name="protocol.NewMatchResp"></a>
+
+### NewMatchResp
+
+
+
+| Field | Type | Label | Description |
+| ----- | ---- | ----- | ----------- |
+| status | [Status](#protocol.Status) |  |  |
+| result | [bool](#bool) |  |  |
 
 
 
